@@ -1,0 +1,26 @@
+// prisma/schema.prisma
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Define a model for students
+model Student {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  progress  Progress[]
+}
+
+// Define a model for progress tracking
+model Progress {
+  id          Int       @id @default(autoincrement())
+  studentId   Int
+  date        DateTime  @default(now())
+  details     String
+  student     Student   @relation(fields: [studentId], references: [id])
+}
