@@ -1,9 +1,7 @@
-import { Configuration, OpenAIApi } from 'openai';
+import OpenAI from 'openai';
 
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
+const client = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY!, // Ensure the API key is set correctly
 });
 
-const openai = new OpenAIApi(configuration);
-
-export default openai;
+export default client;

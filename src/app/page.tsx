@@ -1,4 +1,5 @@
-import VoiceCapture from '@/components/VoiceCapture';
+// src/app/page.tsx
+import VoiceCapture from '@/components/VoiceCapture'; // Ensure this path is correct
 
 export default function HomePage() {
     return (
